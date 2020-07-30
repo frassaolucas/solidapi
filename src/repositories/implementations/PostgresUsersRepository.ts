@@ -1,7 +1,7 @@
-import { IUserRepository } from "../IUsersRepository";
+import { IUsersRepository } from '../IUsersRepository';
 import { User } from '../../entities/User';
 
-export class PostgresUsersRepository implements IUserRepository {
+export class PostgresUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
   async findByEmail(email: string): Promise<User> {
@@ -11,6 +11,6 @@ export class PostgresUsersRepository implements IUserRepository {
   }
 
   async save(user: User): Promise<void> {
-
+    this.users.push(user);
   }
 }
